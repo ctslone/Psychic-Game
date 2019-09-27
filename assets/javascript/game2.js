@@ -5,6 +5,8 @@
 // if the user guess is equal to the computer guess then add to wins. reset the guessed letters and computer guess a new letter ELSE if the user guess not equal to computer guess, subtrsct from guesses remaining, add guessed letter to letters guessed, computer not guess new letter
 // if guesses remaining = 0 then alert the user "You lost" and add to losses counter. reset the guesses remainig and letters guessed
 
+// NOT FOR SUBMISSION. TESTING ONLY. THIS VERSION ALLOWS DUPLICATE GUESSES AND NON-LETTER KEYS
+
 // defining global variables
 var wins = 0;
 var losses = 0;
@@ -26,54 +28,50 @@ var psychicGuess = guessOptions[Math.floor(Math.random() * guessOptions.length)]
 // using onkeyup to begin the sequence of events. functions will run to compare the user guess to the computer guess
 document.onkeyup = function (event) {
     // when user presses key, the result gets stored in the userLetter
-    var userLetter= event.key;
+    var userLetter = event.key;
     // logging the users guess and the psychic guess
         console.log ("User Guess: " + userLetter);
         console.log ("Psychic guess: " + psychicGuess);
-    // not allowing duplicate guesses
-    if (userGuesses.includes(userLetter)) {
-        alert("You already guessed that letter! Guess again!")
-        return;  
+    // statement that compares guesses and adds to wins if letters match
+    
+
+    if (userLetter === psychicGuess) {
+        winner();
+        reset();
+        return;
+        };
+        console.log ("Wins so far: " + wins);
+    // if the guessed letters dont match, subtract a guess left, add to the user guesses array. if the guesses left are > 0 dont subtract. If the guesses left are > 0 then subtract one
+    if (userLetter != psychicGuess) {
+        userGuesses += " " + userLetter + ",";
+        remainingGuessFunction();
     }
-    // only allows letters to be pressed. if anything other than letter is pressed, alert user
-    if (event.keyCode > 64 && event.keyCode < 91) {
-        console.log ("user selected a letter");
-        // if guessed letters match, run the winner function and log out current number of wins
-        if (userLetter === psychicGuess) {
-            winner();
-            };
-            console.log ("Wins so far: " + wins);
-        // if the guessed letters dont match, subtract a guess left, add to the user guesses array. if the guesses left are > 0 dont subtract. If the guesses left are > 0 then subtract one guess
-        if (userLetter != psychicGuess) {
-            userGuesses += " " + userLetter + ",";
-            remainingGuessFunction();
-            }
-    }
-    else alert("You can only guess letters!");
 
     // functions
-    // run if the user guess is != to psychic guess
     function remainingGuessFunction() {
-        if (guessesLeft <= 1) {
-            losses++;
+        if (guessesLeft <= 1)
+            {losses++;
             reset();
             } 
-        else if (guessesLeft > 0) {
-            guessesLeft--;
-        }
+        else if (guessesLeft > 0) 
+            {guessesLeft--;}
     }
-    // run if the user wins
+
     function winner() {
         wins++;
-        userGuesses = [];
-        guessesLeft = 10;  
+        document.getElementById("wins-text").innerHTML = "Wins: " + wins;
+        console.log ("I win");
+        
     }
-    // runs of the user runs out of guesses
+    // }
     function reset() {
         userGuesses = [];
+        document.getElementById("user-guesses").innerHTML = "You have guessed: " + userGuesses;
         guessesLeft = 10;
+        document.getElementById("guesses-left").innerHTML = "Guesses left : " + guessesLeft;
         psychicGuess = guessOptions[Math.floor(Math.random() * guessOptions.length)];
-        console.log ("New winning letter is: " + psychicGuess); 
+        console.log ("New winning letter is: " + psychicGuess);
+        
     }
 
     
@@ -87,12 +85,3 @@ document.onkeyup = function (event) {
     guessLeftText.textContent = "Guesses left: " + guessesLeft;
     userGuessText.textContent = "You have guessed: " + userGuesses;
 }
-
-
-
-
-
-
-
-
-
