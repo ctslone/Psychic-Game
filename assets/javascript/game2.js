@@ -5,7 +5,7 @@
 // if the user guess is equal to the computer guess then add to wins. reset the guessed letters and computer guess a new letter ELSE if the user guess not equal to computer guess, subtrsct from guesses remaining, add guessed letter to letters guessed, computer not guess new letter
 // if guesses remaining = 0 then alert the user "You lost" and add to losses counter. reset the guesses remainig and letters guessed
 
-// NOT FOR SUBMISSION. TESTING ONLY. THIS VERSION ALLOWS DUPLICATE GUESSES AND NON-LETTER KEYS
+// NOT FOR SUBMISSION. TESTING ONLY. THIS VERSION ALLOWS DUPLICATE GUESSES AND NON-LETTER KEYS.
 
 // defining global variables
 var wins = 0;
