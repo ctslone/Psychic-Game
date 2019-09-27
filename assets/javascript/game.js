@@ -4,7 +4,7 @@
 // user document.onkeyup to begin the sequence. user guesses a letter and the computer guesses a letter from an array/string of letters in the alphabet
 // if the user guess is equal to the computer guess then add to wins. reset the guessed letters and computer guess a new letter ELSE if the user guess not equal to computer guess, subtrsct from guesses remaining, add guessed letter to letters guessed, computer not guess new letter
 // if guesses remaining = 0 then alert the user "You lost" and add to losses counter. reset the guesses remainig and letters guessed
-// added no dublicate guesses and only letters can be pressed functionality to the game
+// added no duplicate guesses and only letters can be pressed functionality to the game
 
 // defining global variables
 var wins = 0;
@@ -41,7 +41,9 @@ document.onkeyup = function (event) {
         console.log ("user selected a letter");
         // if guessed letters match, run the winner function and log out current number of wins
         if (userLetter === psychicGuess) {
-            winner();
+            winner()
+            reset();
+            return;
             };
             console.log ("Wins so far: " + wins);
         // if the guessed letters dont match, subtract a guess left, add to the user guesses array. if the guesses left are > 0 dont subtract. If the guesses left are > 0 then subtract one guess
@@ -66,13 +68,14 @@ document.onkeyup = function (event) {
     // run if the user wins
     function winner() {
         wins++;
-        userGuesses = [];
-        guessesLeft = 10;  
+        document.getElementById("wins-text").innerHTML = "Wins: " + wins;
     }
     // runs of the user runs out of guesses
     function reset() {
         userGuesses = [];
+        document.getElementById("user-guesses").innerHTML = "You have guessed: " + userGuesses;
         guessesLeft = 10;
+        document.getElementById("guesses-left").innerHTML = "Guesses left: " + guessesLeft;
         psychicGuess = guessOptions[Math.floor(Math.random() * guessOptions.length)];
         console.log ("New winning letter is: " + psychicGuess); 
     }
