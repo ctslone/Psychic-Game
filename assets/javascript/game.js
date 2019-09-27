@@ -4,6 +4,7 @@
 // user document.onkeyup to begin the sequence. user guesses a letter and the computer guesses a letter from an array/string of letters in the alphabet
 // if the user guess is equal to the computer guess then add to wins. reset the guessed letters and computer guess a new letter ELSE if the user guess not equal to computer guess, subtrsct from guesses remaining, add guessed letter to letters guessed, computer not guess new letter
 // if guesses remaining = 0 then alert the user "You lost" and add to losses counter. reset the guesses remainig and letters guessed
+// added no dublicate guesses and only letters can be pressed functionality to the game
 
 // defining global variables
 var wins = 0;
@@ -86,7 +87,7 @@ document.onkeyup = function (event) {
     lossesText.textContent = "Losses: " + losses;
     guessLeftText.textContent = "Guesses left: " + guessesLeft;
     userGuessText.textContent = "You have guessed: " + userGuesses;
-}
+};
 
 
 
