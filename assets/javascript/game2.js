@@ -1,11 +1,4 @@
-// pseudo code
-// page loads and displays HTML elements. maybe alert the user how to play the game...press any key to guess what letter the psychic is thinking of
-// create variables to hold the following: wins, losses, guesses remaining, letters the user has guessed
-// user document.onkeyup to begin the sequence. user guesses a letter and the computer guesses a letter from an array/string of letters in the alphabet
-// if the user guess is equal to the computer guess then add to wins. reset the guessed letters and computer guess a new letter ELSE if the user guess not equal to computer guess, subtrsct from guesses remaining, add guessed letter to letters guessed, computer not guess new letter
-// if guesses remaining = 0 then alert the user "You lost" and add to losses counter. reset the guesses remainig and letters guessed
-
-// NOT FOR SUBMISSION. TESTING ONLY. THIS VERSION ALLOWS DUPLICATE GUESSES AND NON-LETTER KEYS.
+// NOT FOR USE. FOR TESTING ONLY. 
 
 // defining global variables
 var wins = 0;
