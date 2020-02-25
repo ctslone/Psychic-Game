@@ -2,6 +2,8 @@
 
 This is a simple vanilla JavaScrip guessing game that puts the user against the computer to try and guess the letter that the computer is "thinking" of. 
 
+![](assets/images/readme.png)
+
 ## Getting Started
 
 Want to try it out?
